@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Vehicle Detection System</title>
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .video-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        #videoInput {
+            width: 100%;
+            max-width: 800px;
+        }
+        .input-controls {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .control-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .alert {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .alert.warning {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .metric-item {
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .metric-item h3 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .btn:hover:not(:disabled) {
+            background: #0056b3;
+        }
+        .btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+        .btn.start {
+            background: #28a745;
+        }
+        .btn.start:hover:not(:disabled) {
+            background: #218838;
+        }
+        .btn.stop {
+            background: #dc3545;
+        }
+        .btn.stop:hover:not(:disabled) {
+            background: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Real-time Detection System</h1>
+        <div class="input-controls">
+            <input type="file" id="videoFile" accept="video/*" />
+            <input type="file" id="imageFile" accept="image/*" />
+            <button id="cameraButton" class="btn">Use Camera</button>
+            <div class="control-buttons">
+                <button id="startButton" class="btn start" disabled>Start Detection</button>
+                <button id="stopButton" class="btn stop" disabled>Stop Detection</button>
+            </div>
+        </div>
+        <div class="video-container">
+            <video id="videoInput" autoplay muted></video>
+        </div>
+        <div id="alertDisplay"></div>
+        <div id="metricsDisplay"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
